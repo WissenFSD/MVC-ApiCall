@@ -29,8 +29,7 @@ namespace MVC_ApiCall.Repository
             var characterResult = JsonConvert.DeserializeObject<CharacterResults>(response.Content);
 
 
-
-            return new List<Character>();
+            return characterResult.results;
 
 
 

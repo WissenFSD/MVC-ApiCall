@@ -11,7 +11,7 @@ namespace MVC_ApiCall.Controllers
 
         public HomeController(IRickAndMortyService service)
         {
-            _rickandmortyService = service;
+            
          
         }
 
@@ -23,9 +23,7 @@ namespace MVC_ApiCall.Controllers
             // RestSharp.RestClient cli = new RestSharp.RestClient();
 
 
-           var characters =  _rickandmortyService.GetCharacters();
-
-            return View();
+         return View();
         }
 
         public IActionResult Privacy()
