@@ -1,3 +1,6 @@
+using MVC_ApiCall.Repository;
+using MVC_ApiCall.Service;
+
 namespace MVC_ApiCall
 {
     public class Program
@@ -8,6 +11,11 @@ namespace MVC_ApiCall
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+
+            // Baðýmlýlýklarý ekledim.
+            builder.Services.AddScoped<IRickAndMortyService,RickAndMortyService>();
+            builder.Services.AddScoped<IRickAndMortyRepository,RickAndMortyRepository>();
 
             var app = builder.Build();
 

@@ -1,16 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC_ApiCall.Models;
+using MVC_ApiCall.Service;
 using System.Diagnostics;
 
 namespace MVC_ApiCall.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        public IRickAndMortyService _rickandmortyService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IRickAndMortyService service)
         {
-            _logger = logger;
+            _rickandmortyService = service;
+         
         }
 
         public IActionResult Index()
@@ -18,7 +20,10 @@ namespace MVC_ApiCall.Controllers
 
             // bir mvc uygulamasından api'ye istek atmak için RestCharp kullanılmaktadır.
 
-           // RestSharp.RestClient cli = new RestSharp.RestClient();
+            // RestSharp.RestClient cli = new RestSharp.RestClient();
+
+
+           var characters =  _rickandmortyService.GetCharacters();
 
             return View();
         }
